@@ -1,7 +1,5 @@
 /*  date = May 25th 2026 11:17 PM  */
 
-/*  date = May 20th 2026 09:18 Vector2M  */
-
 // #include <stdio.h>
 #include <math.h>
 #include "third_party/raylib/include/raylib.h"
@@ -17,6 +15,11 @@ Color BACKGROUND = {16, 16, 16, 255};
 
 Vector2 Screen(Vector2 p)
 {
+	// p, screen space is pretty much NDC already
+	// the "-1..1 -> 0..2 -> 0..1", I would just all consider NDC i think
+
+	// then 0..1 -> 0..width or height is NDC -> raster space
+
 	// -1..1 -> 0..2 -> 0..1 -> 0..w
 	return (Vector2) {
 		((p.x + 1) / 2) * SCREEN_WIDTH,
